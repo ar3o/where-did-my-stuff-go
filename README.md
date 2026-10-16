@@ -26,7 +26,7 @@
 
 <p align="center">My submission for the <b>Humanoid Spatial AI internship challenge</b> ("What changed in the room?"), October 2026.</p>
 
-<p align="center"><b>Live write-up:</b> I am continuing this project after the challenge deadline, and the latest version of this write-up lives at <a href="https://ar3o.github.io/where-did-my-stuff-go/">ar3o.github.io/where-did-my-stuff-go</a>.</p>
+<p align="center"><b>Live write-up:</b> I keep updating this repo after the challenge deadline. If you are reading a cloned copy, the latest version is at <a href="https://ar3o.github.io/where-did-my-stuff-go/">ar3o.github.io/where-did-my-stuff-go</a>.</p>
 
 ## Why I built this
 
