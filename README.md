@@ -164,16 +164,18 @@ I scored the reported events by hand against what I remember changing, which mea
 
 I did not write down how many real changes each set had, so the recall here is pooled, as it is in information retrieval: it is the number of distinct real changes a method found divided by the number found by any of the three methods, which makes it a recall relative to the three methods together and not against everything I changed. A duplicate of another method's correct event counts as a correct detection for its own method, since it reports the same real change, but it is left out of the type and name accuracy because only the first card was judged for those. Duplicates within one method are counted as redundancy and left out of precision, and an unsure verdict counts as not correct. The intervals are Wilson 95 % intervals, and since the events are clustered in sets they are narrower than they should be.
 
+SceneDiff is the published method run from its public code, with three changes I had to make: the DINOv2 ViT-L features stand in for DINOv3, whose weights need a gated download, it uses Pi3 for geometry, and its reference side is 32 of the 64 reference keyframes because the full set did not fit in GPU memory next to the other jobs. It is also built to compare two videos, and here its second side is three photos, so this is a comparison with a reasonable setup of that method and not a tuned one. The rule-based method uses the same inventory as the full pipeline and pairs objects by name instead of using the learned checker. The three methods were shown to me mixed together with the method names hidden, although SceneDiff cards for removed objects show a crop of the reference frame, which may have given them away.
+
 | Method | Events scored | Precision (95 % CI) | Recall, pooled (95 % CI) | Type accuracy (95 % CI) | Name accuracy (95 % CI) | Redundancy (95 % CI) |
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|
 | Full pipeline | 32 | 94 % (80-98) | 47 % (35-59) (29 of 62) | 80 % (61-91) | 100 % (87-100) | 0 % (0-11) |
-| Official SceneDiff | 45 | 65 % (50-78) | 45 % (33-57) (28 of 62) | 65 % (45-81) | 91 % (73-98) | 4 % (1-15) |
+| SceneDiff (DINOv2 variant) | 45 | 65 % (50-78) | 45 % (33-57) (28 of 62) | 65 % (45-81) | 91 % (73-98) | 4 % (1-15) |
 | Rules (phrase pairing on the inventory) | 29 | 85 % (68-94) | 34 % (23-46) (21 of 62) | 50 % (27-73) | 100 % (78-100) | 7 % (2-22) |
 
 | Method | Correct | Wrong type | Wrong name | Duplicate of another method's correct event | Duplicate within the method | Nothing like that changed | Unsure |
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Full pipeline | 20 | 5 | 0 | 5 | 0 | 2 | 0 |
-| Official SceneDiff | 13 | 8 | 2 | 5 | 2 | 10 | 5 |
+| SceneDiff (DINOv2 variant) | 13 | 8 | 2 | 5 | 2 | 10 | 5 |
 | Rules (phrase pairing on the inventory) | 7 | 7 | 0 | 9 | 2 | 4 | 0 |
 
 <p align="center">
@@ -242,7 +244,7 @@ Every method was run on the same 5 photos of the untouched room, where nothing s
 | Method | Objects wrongly reported as changed (5 untouched photos) | Events reported (22 change sets) | Remark |
 |:--|:-:|:-:|:--|
 | Rules on Pi3X features, per photo | 0 | 2.7 per photo | 72 % of all answers were "can't verify" |
-| Official SceneDiff (DINOv2 variant) | 16 | 245 | 49 s per pair without SAM, 9 GB |
+| SceneDiff (DINOv2 variant) | 16 | 245 | 49 s per pair without SAM, 9 GB |
 | Depth and appearance blobs fused in 3D | 0 | 238 blobs | no object identity |
 | SAM masks matched between render and photo | 0 | 109 | |
 | Learned checker with SAM masks as objects | 0 | 132 | |
