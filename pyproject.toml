@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whatchanged"
+version = "0.1.0"
+description = "Where did my stuff go: film a room once, photograph it later, and get a 3D list of what was moved, removed or added"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "scipy",
+    "opencv-python-headless",
+    "pillow",
+    "pyyaml",
+]
+
+[project.optional-dependencies]
+splat = ["torch>=2.4", "gsplat==1.5.3", "pycolmap>=3.11", "pillow-heif", "matplotlib"]
+vision = ["torch>=2.4", "transformers>=4.56"]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+include = ["whatchanged*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E741", "B905"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,18 @@
+# Stage 5 (whatchanged.checker): training pairs, training, inference, calibration.
+
+pairs:
+  per_frame: 4            # edited renders per walk frame
+  need_mib: 2500
+features:
+  need_mib: 3000
+train:
+  epochs: 40
+  batch: 16
+  lr: 0.001
+  weight_decay: 0.0001
+  max_minutes: 25.0
+  need_mib: 4000
+infer:
+  need_mib: 2500
+calibrate:
+  need_mib: 2500

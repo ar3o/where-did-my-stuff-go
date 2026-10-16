@@ -1,0 +1,11 @@
+# Stage 1 (whatchanged.ingest): reference video -> frames, query photos -> JPEGs.
+
+fps: 10.0                 # decode rate of the reference video
+long_side: 960            # work size of frames and photos
+hires_long_side: 1920     # copies for SAM 3 tiles and SigLIP 2 crops
+n_keyframes: 64           # sharpest frame of each of 64 equal time bins
+n_extra: 220              # more frames, at least 0.15 s from any keyframe
+test_every: 8             # every 8th extra frame is held out from the splat
+blur_frac: 0.35           # a frame is acceptable at >= 0.35 x the median sharpness
+jpeg_quality: 95
+query_video_frames: 3     # frames taken from a query video

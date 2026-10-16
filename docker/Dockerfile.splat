@@ -1,0 +1,20 @@
+# Pipeline image: PyTorch, gsplat, pycolmap, ffmpeg with zscale, and this package.
+# Build:  docker build -f docker/Dockerfile.splat -t whatchanged-splat .
+# Run:    docker run --gpus all -it --rm -v $PWD/data:/workspace/whatchanged/data -v $PWD/runs:/workspace/whatchanged/runs \
+#             -v $PWD/weights:/workspace/whatchanged/weights whatchanged-splat
+FROM nvcr.io/nvidia/pytorch:25.09-py3
+LABEL org.opencontainers.image.title="Where did my stuff go (whatchanged)"
+
+ENV DEBIAN_FRONTEND=noninteractive TORCH_CUDA_ARCH_LIST="8.9"
+RUN apt-get update && apt-get install -y --no-install-recommends ffmpeg libzimg-dev && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace/whatchanged
+COPY requirements/splat.txt requirements/splat.txt
+RUN pip install --no-cache-dir -r requirements/splat.txt
+COPY pyproject.toml README.md ./
+COPY whatchanged whatchanged
+COPY configs configs
+COPY scripts scripts
+RUN pip install --no-cache-dir --no-deps -e .
+
+ENTRYPOINT ["/bin/bash"]

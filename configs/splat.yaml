@@ -1,0 +1,38 @@
+# Stage 3 (whatchanged.splat): splat training, cleanup, photo localisation, support maps.
+
+train:
+  iters: 30000
+  max_gaussians: 2500000    # growth threshold x1.5 whenever the count passes this
+  grow_grad2d: 0.0002
+  reset_every: 3000
+  refine_every: 100
+  checkpoint_every: 5000
+  affine_l2: 0.01           # pull of the per-frame colour affine towards identity
+  ssim_weight: 0.2
+  need_mib: 5000            # GPU memory to wait for (the config1 run peaked at 7.4 GB reserved)
+
+cleanup:
+  enabled: false            # the published config1 results use the uncleaned splat
+  min_opacity: 0.005
+  max_scale_m: 1.0
+  room_margin_m: 0.5
+  floor_reflection_m: -0.3
+  min_views: 3
+  need_mib: 2500
+
+localize:
+  scales: [0.25, 0.5]       # render-and-compare at 240x180, then 480x360
+  steps: [60, 40]
+  blur_sigmas: [2.0, 1.0]
+  lr_rotation: 0.002
+  lr_translation: 0.004
+  need_mib: 2500
+
+support:
+  min_views: 3              # known = seen on its own surface by >= 3 reference cameras
+  max_angle_deg: 60.0
+  tol_abs_m: 0.02
+  tol_rel: 0.03
+  min_range_m: 0.15
+  max_range_m: 6.0
+  need_mib: 3000

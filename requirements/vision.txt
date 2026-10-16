@@ -1,0 +1,8 @@
+# MoGe-3, DINOv2 and SigLIP 2 workers. MoGe is installed from source, see docs/installation.md.
+torch>=2.8
+torchvision
+transformers>=4.56
+numpy>=2.0,<2.3
+opencv-python-headless
+pillow
+pyyaml

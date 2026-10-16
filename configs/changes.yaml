@@ -1,0 +1,9 @@
+# Stage 6 (whatchanged.changes): re-identification, instance counting and the per-group comparison.
+# Decision thresholds are calibrated probabilities (0.5) or come from the held-out walk frames; none is set by hand here.
+
+sam3_min_p: 0.2
+sam3_topk: 8
+name_margin: 0.25
+sam3_need_mib: 5000
+siglip_need_mib: 2500
+render_need_mib: 3000

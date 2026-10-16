@@ -1,0 +1,7 @@
+# Stage 2 (whatchanged.sfm): pycolmap SfM and the metric world frame.
+
+photo_focal_35mm: 24.0    # focal prior of the photos (35 mm equivalent); bundle adjustment refines it
+max_reproj_px: 1.5
+point_max_error_px: 2.0   # SfM points used for the frame and the splat initialisation
+point_min_track: 3
+moge_need_mib: 3000

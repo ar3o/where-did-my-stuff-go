@@ -1,0 +1,10 @@
+# Stage 4 (whatchanged.inventory): labelled 3D inventory from the name list.
+
+frame_every: 2            # SAM 3 on every 2nd registered walk frame (work image + 2 x 2 tiles)
+sam3_min_p: 0.35
+sam3_topk: 6
+name_margin: 0.25         # "(uncertain)" when (p1 - p2) / p1 is below this
+sam3_need_mib: 5000
+dino_need_mib: 3000
+siglip_need_mib: 2500
+render_need_mib: 3500

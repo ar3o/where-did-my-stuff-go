@@ -1,0 +1,25 @@
+# Vision image: MoGe-3 depth, DINOv2 features, SigLIP 2 and SAM 3 workers.
+# Build:  docker build -f docker/Dockerfile.vision -t whatchanged-vision .
+# Run:    docker run --gpus all -it --rm -e HF_TOKEN -v $PWD/data:/workspace/whatchanged/data \
+#             -v $PWD/weights:/workspace/whatchanged/weights whatchanged-vision
+FROM nvcr.io/nvidia/pytorch:25.09-py3
+LABEL org.opencontainers.image.title="Where did my stuff go (whatchanged)"
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends git && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt
+RUN git clone https://github.com/facebookresearch/sam3.git && pip install --no-cache-dir -e sam3 \
+    && git clone https://github.com/microsoft/MoGe.git && pip install --no-cache-dir -e MoGe \
+    && git clone https://github.com/facebookresearch/dinov2.git /workspace/whatchanged/weights/torch_hub/facebookresearch_dinov2_main
+
+WORKDIR /workspace/whatchanged
+COPY requirements/vision.txt requirements/vision.txt
+RUN pip install --no-cache-dir -r requirements/vision.txt
+COPY pyproject.toml README.md ./
+COPY whatchanged whatchanged
+COPY configs configs
+RUN pip install --no-cache-dir --no-deps -e .
+
+ENV SAM3_REPO=/opt/sam3
+ENTRYPOINT ["/bin/bash"]

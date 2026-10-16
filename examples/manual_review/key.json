@@ -1,0 +1,1617 @@
+{
+ "events": {
+  "e609e9748": {
+   "group": 1,
+   "method": "rules",
+   "objkey": "rules:I71",
+   "kind": "removed",
+   "text": "egg carton removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "ea4dcae48": {
+   "group": 1,
+   "method": "scenediff",
+   "objkey": "scenediff:12",
+   "kind": "removed",
+   "text": "brown pastry with berries removed",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e04e412a0": {
+   "group": 1,
+   "method": "ours",
+   "objkey": "ours:I51",
+   "kind": "removed",
+   "text": "pale green bowl removed",
+   "merged": 2,
+   "label": "event 8"
+  },
+  "e8cd86e5e": {
+   "group": 1,
+   "method": "scenediff",
+   "objkey": "scenediff:7",
+   "kind": "removed",
+   "text": "white ceramic bowl removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e34c6ba9d": {
+   "group": 1,
+   "method": "scenediff",
+   "objkey": "scenediff:10",
+   "kind": "removed",
+   "text": "black rectangular block removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e65bf2e13": {
+   "group": 1,
+   "method": "scenediff",
+   "objkey": "scenediff:15",
+   "kind": "removed",
+   "text": "white plate with berries removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "ead66d04e": {
+   "group": 1,
+   "method": "ours",
+   "objkey": "ours:I71",
+   "kind": "moved",
+   "text": "egg carton moved",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "eaa01d853": {
+   "group": 2,
+   "method": "rules",
+   "objkey": "rules:I44",
+   "kind": "removed",
+   "text": "wooden rolling pin removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e2d17e6e4": {
+   "group": 2,
+   "method": "ours",
+   "objkey": "ours:I67",
+   "kind": "moved",
+   "text": "cadbury drinking chocolate tin moved",
+   "merged": 3,
+   "label": "event 2"
+  },
+  "e7443d712": {
+   "group": 2,
+   "method": "scenediff",
+   "objkey": "scenediff:2",
+   "kind": "moved",
+   "text": "yellow egg carton moved",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e5a417d7c": {
+   "group": 2,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "removed",
+   "text": "light wooden stick removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e43ec9693": {
+   "group": 2,
+   "method": "rules",
+   "objkey": "rules:I71",
+   "kind": "removed",
+   "text": "egg carton removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "efa48aa33": {
+   "group": 2,
+   "method": "rules",
+   "objkey": "rules:I94",
+   "kind": "removed",
+   "text": "black folded exercise machine removed",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "e10fb856e": {
+   "group": 2,
+   "method": "scenediff",
+   "objkey": "scenediff:5",
+   "kind": "removed",
+   "text": "white milk jug removed",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "ea29bd7b0": {
+   "group": 3,
+   "method": "rules",
+   "objkey": "rules:I44",
+   "kind": "removed",
+   "text": "wooden rolling pin removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e07d4a018": {
+   "group": 3,
+   "method": "scenediff",
+   "objkey": "scenediff:15",
+   "kind": "removed",
+   "text": "brown cardboard egg carton removed",
+   "merged": 2,
+   "label": "event 8"
+  },
+  "e68506a75": {
+   "group": 3,
+   "method": "ours",
+   "objkey": "ours:I48",
+   "kind": "removed",
+   "text": "shredded wheat cereal box removed",
+   "merged": 2,
+   "label": "event 9"
+  },
+  "e4b9b361f": {
+   "group": 3,
+   "method": "rules",
+   "objkey": "rules:I67",
+   "kind": "moved",
+   "text": "cadbury drinking chocolate tin moved",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e8f7cc239": {
+   "group": 3,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "moved",
+   "text": "yellow nestl\u00e9 box moved",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e0c361176": {
+   "group": 3,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "removed",
+   "text": "white cup with red stripe removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e79802366": {
+   "group": 3,
+   "method": "rules",
+   "objkey": "rules:I39",
+   "kind": "moved",
+   "text": "small cardboard box moved",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "e125de55d": {
+   "group": 3,
+   "method": "ours",
+   "objkey": "ours:I39",
+   "kind": "moved",
+   "text": "shredded wheat cereal box moved",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "e7a09d710": {
+   "group": 4,
+   "method": "scenediff",
+   "objkey": "scenediff:10",
+   "kind": "removed",
+   "text": "white bottle with green cap removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e6e62cf49": {
+   "group": 4,
+   "method": "scenediff",
+   "objkey": "scenediff:12",
+   "kind": "added",
+   "text": "brown leather boot added",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e918f61ad": {
+   "group": 4,
+   "method": "ours",
+   "objkey": "ours:g04A1",
+   "kind": "added",
+   "text": "kelloggs cereal box added",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "ea00632da": {
+   "group": 4,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "removed",
+   "text": "green cactus in pot removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e4d5b9bf6": {
+   "group": 4,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "beige tape roll removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e6c5af78c": {
+   "group": 5,
+   "method": "ours",
+   "objkey": "ours:I54",
+   "kind": "removed",
+   "text": "amazon cardboard box removed",
+   "merged": 2,
+   "label": "event 1"
+  },
+  "e0bcf1516": {
+   "group": 5,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "moved",
+   "text": "blue broom with white bristles moved",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e59c4902b": {
+   "group": 5,
+   "method": "ours",
+   "objkey": "ours:g05A2",
+   "kind": "added",
+   "text": "kelloggs cereal box added",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e1cc0b736": {
+   "group": 5,
+   "method": "rules",
+   "objkey": "rules:A2",
+   "kind": "added",
+   "text": "small cardboard box added",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e8b5c83fa": {
+   "group": 5,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e779bf65b": {
+   "group": 5,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "removed",
+   "text": "purple lotus box removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "eaa3e2506": {
+   "group": 5,
+   "method": "scenediff",
+   "objkey": "scenediff:15",
+   "kind": "added",
+   "text": "blue broom with brush added",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "e0eb78871": {
+   "group": 5,
+   "method": "ours",
+   "objkey": "ours:g05A3",
+   "kind": "added",
+   "text": "black ankle boot added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e07b6caca": {
+   "group": 5,
+   "method": "ours",
+   "objkey": "ours:I6",
+   "kind": "moved",
+   "text": "blue broom moved",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "ef5beb416": {
+   "group": 5,
+   "method": "rules",
+   "objkey": "rules:A3",
+   "kind": "added",
+   "text": "blue broom added",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "e860e9ab9": {
+   "group": 5,
+   "method": "scenediff",
+   "objkey": "scenediff:10",
+   "kind": "removed",
+   "text": "blue plastic object removed",
+   "merged": 1,
+   "label": "event 11"
+  },
+  "e4a293d36": {
+   "group": 6,
+   "method": "scenediff",
+   "objkey": "scenediff:8",
+   "kind": "added",
+   "text": "blue bottle of soap added",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "ec10cb6cc": {
+   "group": 6,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "moved",
+   "text": "blue broom moved",
+   "merged": 2,
+   "label": "event 2"
+  },
+  "e731da5a8": {
+   "group": 6,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "removed",
+   "text": "yellow amazon box removed",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e0251020f": {
+   "group": 6,
+   "method": "ours",
+   "objkey": "ours:I24",
+   "kind": "moved",
+   "text": "banana moved",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "eb1435164": {
+   "group": 6,
+   "method": "scenediff",
+   "objkey": "scenediff:2",
+   "kind": "removed",
+   "text": "yellow banana peel removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "ea161b559": {
+   "group": 6,
+   "method": "ours",
+   "objkey": "ours:g06A1",
+   "kind": "added",
+   "text": "small cardboard box added",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "eb8f16864": {
+   "group": 6,
+   "method": "rules",
+   "objkey": "rules:I71",
+   "kind": "moved",
+   "text": "egg carton moved",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "eb393713d": {
+   "group": 6,
+   "method": "ours",
+   "objkey": "ours:g06A2",
+   "kind": "added",
+   "text": "blue plastic bottle added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e13b425da": {
+   "group": 6,
+   "method": "rules",
+   "objkey": "rules:I54",
+   "kind": "moved",
+   "text": "amazon cardboard box moved",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "ea7aa1022": {
+   "group": 6,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "amazon cardboard box added",
+   "merged": 1,
+   "label": "event 11"
+  },
+  "e82898166": {
+   "group": 7,
+   "method": "ours",
+   "objkey": "ours:I71",
+   "kind": "moved",
+   "text": "egg carton moved",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "ef11785b4": {
+   "group": 7,
+   "method": "ours",
+   "objkey": "ours:g07A2",
+   "kind": "added",
+   "text": "blue plastic bottle added",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e6dc66554": {
+   "group": 7,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e9aa42bd5": {
+   "group": 7,
+   "method": "ours",
+   "objkey": "ours:g07A1",
+   "kind": "added",
+   "text": "green knitted cloth added",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "eb03a42f6": {
+   "group": 7,
+   "method": "ours",
+   "objkey": "ours:I40",
+   "kind": "removed",
+   "text": "navy lotus shoe box removed",
+   "merged": 3,
+   "label": "event 9"
+  },
+  "ead949f1f": {
+   "group": 7,
+   "method": "scenediff",
+   "objkey": "scenediff:11",
+   "kind": "removed",
+   "text": "white bottle with green cap removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e77db312f": {
+   "group": 7,
+   "method": "scenediff",
+   "objkey": "scenediff:2",
+   "kind": "removed",
+   "text": "purple lotus box removed",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "e4ab2e495": {
+   "group": 7,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "eca20bc9f": {
+   "group": 7,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "removed",
+   "text": "green cactus in pot removed",
+   "merged": 1,
+   "label": "event 11"
+  },
+  "ee8bc757c": {
+   "group": 8,
+   "method": "ours",
+   "objkey": "ours:I38",
+   "kind": "removed",
+   "text": "white plastic milk jug removed",
+   "merged": 2,
+   "label": "event 5"
+  },
+  "e6fa09738": {
+   "group": 8,
+   "method": "ours",
+   "objkey": "ours:g08A1",
+   "kind": "added",
+   "text": "pale green plate added",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e5c393cb2": {
+   "group": 8,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "removed",
+   "text": "green cactus in pot removed",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "ef13b5919": {
+   "group": 8,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e5c91cec4": {
+   "group": 8,
+   "method": "scenediff",
+   "objkey": "scenediff:2",
+   "kind": "removed",
+   "text": "white milk jug removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e9bd69285": {
+   "group": 8,
+   "method": "scenediff",
+   "objkey": "scenediff:5",
+   "kind": "moved",
+   "text": "blue lotus box moved",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "eaa0fcab7": {
+   "group": 8,
+   "method": "ours",
+   "objkey": "ours:g08A2",
+   "kind": "added",
+   "text": "banana added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e2b2652c1": {
+   "group": 8,
+   "method": "rules",
+   "objkey": "rules:I42",
+   "kind": "moved",
+   "text": "banana moved",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "ea5a4a34a": {
+   "group": 8,
+   "method": "rules",
+   "objkey": "rules:A2",
+   "kind": "added",
+   "text": "object added",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "e207bee73": {
+   "group": 8,
+   "method": "scenediff",
+   "objkey": "scenediff:10",
+   "kind": "removed",
+   "text": "white bottle with green cap removed",
+   "merged": 1,
+   "label": "event 11"
+  },
+  "e608ba929": {
+   "group": 9,
+   "method": "ours",
+   "objkey": "ours:g09A1",
+   "kind": "added",
+   "text": "fox print bowl added",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "eba1ace1f": {
+   "group": 9,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e7c7a9ff8": {
+   "group": 9,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "blue broom added",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e63d049f3": {
+   "group": 9,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "ea11c2538": {
+   "group": 9,
+   "method": "scenediff",
+   "objkey": "scenediff:5",
+   "kind": "removed",
+   "text": "white bottle with green cap removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e8b4fd298": {
+   "group": 9,
+   "method": "rules",
+   "objkey": "rules:I3",
+   "kind": "removed",
+   "text": "pink office chair removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e8d09e9f2": {
+   "group": 9,
+   "method": "ours",
+   "objkey": "ours:g09A2",
+   "kind": "added",
+   "text": "green apple added",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "eab945416": {
+   "group": 9,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "removed",
+   "text": "white cup with red stripe removed",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "ef5ad3bb0": {
+   "group": 9,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "removed",
+   "text": "green ribbed glass removed",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "eb2a87511": {
+   "group": 9,
+   "method": "rules",
+   "objkey": "rules:I44",
+   "kind": "removed",
+   "text": "wooden rolling pin removed",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "e3e22b95f": {
+   "group": 10,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "moved",
+   "text": "blue broom with white bristles moved",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e9a3ad02b": {
+   "group": 10,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "added",
+   "text": "blue lotus shoebox added",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "ec5ed2585": {
+   "group": 10,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e927b4226": {
+   "group": 10,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "added",
+   "text": "white egg carton added",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e9652918f": {
+   "group": 10,
+   "method": "ours",
+   "objkey": "ours:g10A1",
+   "kind": "added",
+   "text": "grey cipriata box? added",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "eaba39f83": {
+   "group": 10,
+   "method": "rules",
+   "objkey": "rules:A2",
+   "kind": "added",
+   "text": "hammer added",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "eb0391c74": {
+   "group": 10,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "removed",
+   "text": "beige tape roll removed",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "e6320f2df": {
+   "group": 10,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "object added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e617e22fb": {
+   "group": 11,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "moved",
+   "text": "white egg carton moved",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e10372d9e": {
+   "group": 11,
+   "method": "ours",
+   "objkey": "ours:g11A2",
+   "kind": "added",
+   "text": "grey cipriata box added",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e61a500d3": {
+   "group": 11,
+   "method": "ours",
+   "objkey": "ours:I82",
+   "kind": "removed",
+   "text": "navy and white striped pillow removed",
+   "merged": 3,
+   "label": "event 7"
+  },
+  "eea2d7d0d": {
+   "group": 11,
+   "method": "ours",
+   "objkey": "ours:g11A1",
+   "kind": "added",
+   "text": "navy and white striped pillow added",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e5224b198": {
+   "group": 11,
+   "method": "scenediff",
+   "objkey": "scenediff:6",
+   "kind": "added",
+   "text": "black plastic handle added",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e2a908dd5": {
+   "group": 11,
+   "method": "scenediff",
+   "objkey": "scenediff:5",
+   "kind": "removed",
+   "text": "white bottle with green cap removed",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e7fce3cd7": {
+   "group": 11,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "removed",
+   "text": "white laptop with sticker removed",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "e07fd9b18": {
+   "group": 11,
+   "method": "rules",
+   "objkey": "rules:I91",
+   "kind": "removed",
+   "text": "silver laptop removed",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "e64e03dd1": {
+   "group": 11,
+   "method": "ours",
+   "objkey": "ours:g11A3",
+   "kind": "added",
+   "text": "banana added",
+   "merged": 1,
+   "label": "event 11"
+  },
+  "ebc67d7c9": {
+   "group": 12,
+   "method": "scenediff",
+   "objkey": "scenediff:5",
+   "kind": "removed",
+   "text": "brown pastry with berries removed",
+   "merged": 6,
+   "label": "event 1"
+  },
+  "e00a46acc": {
+   "group": 12,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "moved",
+   "text": "purple chocolate box moved",
+   "merged": 3,
+   "label": "event 2"
+  },
+  "ed47c7233": {
+   "group": 12,
+   "method": "ours",
+   "objkey": "ours:g12A1",
+   "kind": "added",
+   "text": "small cardboard box added",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "eb6f6efb1": {
+   "group": 12,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "amazon cardboard box added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "edb965976": {
+   "group": 13,
+   "method": "ours",
+   "objkey": "ours:I71",
+   "kind": "moved",
+   "text": "egg carton moved",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e986f09dd": {
+   "group": 13,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e00d1a248": {
+   "group": 13,
+   "method": "ours",
+   "objkey": "ours:I13",
+   "kind": "moved",
+   "text": "steel frying pan moved",
+   "merged": 2,
+   "label": "event 12"
+  },
+  "eaed264d8": {
+   "group": 13,
+   "method": "ours",
+   "objkey": "ours:I30",
+   "kind": "moved",
+   "text": "orange sony camera box moved",
+   "merged": 3,
+   "label": "event 11"
+  },
+  "ee9a800d8": {
+   "group": 13,
+   "method": "ours",
+   "objkey": "ours:I38",
+   "kind": "removed",
+   "text": "white plastic milk jug removed",
+   "merged": 2,
+   "label": "event 7"
+  },
+  "ed7d470d6": {
+   "group": 13,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "moved",
+   "text": "blue broom moved",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e82957e5a": {
+   "group": 13,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "removed",
+   "text": "white milk jug removed",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "e56363d73": {
+   "group": 13,
+   "method": "rules",
+   "objkey": "rules:I13",
+   "kind": "removed",
+   "text": "steel frying pan removed",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "e09f84ad0": {
+   "group": 14,
+   "method": "rules",
+   "objkey": "rules:I71",
+   "kind": "moved",
+   "text": "egg carton moved",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "ef42db8aa": {
+   "group": 14,
+   "method": "rules",
+   "objkey": "rules:I40",
+   "kind": "removed",
+   "text": "small cardboard box removed",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "ee7acb780": {
+   "group": 14,
+   "method": "scenediff",
+   "objkey": "scenediff:8",
+   "kind": "removed",
+   "text": "blue plastic object removed",
+   "merged": 3,
+   "label": "event 5"
+  },
+  "ef0be55fe": {
+   "group": 14,
+   "method": "rules",
+   "objkey": "rules:I6",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e90f5598d": {
+   "group": 14,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "moved",
+   "text": "blue-handled broom moved",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e6fa61d92": {
+   "group": 14,
+   "method": "ours",
+   "objkey": "ours:I71",
+   "kind": "moved",
+   "text": "egg carton moved",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "ef0a6a8da": {
+   "group": 14,
+   "method": "rules",
+   "objkey": "rules:I42",
+   "kind": "removed",
+   "text": "banana removed",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "e6987c36c": {
+   "group": 15,
+   "method": "rules",
+   "objkey": "rules:I91",
+   "kind": "removed",
+   "text": "silver laptop removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e18a69e3c": {
+   "group": 15,
+   "method": "ours",
+   "objkey": "ours:I51",
+   "kind": "removed",
+   "text": "pale green bowl removed",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e2cf503ae": {
+   "group": 15,
+   "method": "scenediff",
+   "objkey": "scenediff:6",
+   "kind": "removed",
+   "text": "white bottle with green cap removed",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e2a1e3a54": {
+   "group": 15,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "banana added",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e140a3b41": {
+   "group": 15,
+   "method": "ours",
+   "objkey": "ours:I83",
+   "kind": "removed",
+   "text": "honey squeeze bottle removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e09f75c6d": {
+   "group": 15,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "removed",
+   "text": "white ceramic bowl removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "ee9a9ba17": {
+   "group": 15,
+   "method": "ours",
+   "objkey": "ours:I41",
+   "kind": "removed",
+   "text": "yellow spirit level removed",
+   "merged": 2,
+   "label": "event 8"
+  },
+  "ea4b57683": {
+   "group": 15,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "green cactus in pot removed",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "e628ded71": {
+   "group": 15,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "moved",
+   "text": "yellow egg carton moved",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "e1cc6ed17": {
+   "group": 15,
+   "method": "rules",
+   "objkey": "rules:I40",
+   "kind": "removed",
+   "text": "small cardboard box removed",
+   "merged": 1,
+   "label": "event 11"
+  },
+  "e4a0c84cc": {
+   "group": 16,
+   "method": "scenediff",
+   "objkey": "scenediff:6",
+   "kind": "removed",
+   "text": "black rectangular block removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "eee46070e": {
+   "group": 16,
+   "method": "ours",
+   "objkey": "ours:I3",
+   "kind": "removed",
+   "text": "pink office chair removed",
+   "merged": 2,
+   "label": "event 3"
+  },
+  "e4c41d1b8": {
+   "group": 16,
+   "method": "scenediff",
+   "objkey": "scenediff:7",
+   "kind": "removed",
+   "text": "white bottle with green cap removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "eaafeb0db": {
+   "group": 16,
+   "method": "ours",
+   "objkey": "ours:g16A1",
+   "kind": "added",
+   "text": "shredded wheat cereal box added",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e2f21dec2": {
+   "group": 16,
+   "method": "ours",
+   "objkey": "ours:I51",
+   "kind": "removed",
+   "text": "pale green bowl removed",
+   "merged": 2,
+   "label": "event 6"
+  },
+  "e096e35b3": {
+   "group": 16,
+   "method": "rules",
+   "objkey": "rules:I39",
+   "kind": "moved",
+   "text": "small cardboard box moved",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "e18fdca0d": {
+   "group": 16,
+   "method": "rules",
+   "objkey": "rules:I91",
+   "kind": "removed",
+   "text": "silver laptop removed",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e8e1c4f3d": {
+   "group": 16,
+   "method": "rules",
+   "objkey": "rules:I38",
+   "kind": "moved",
+   "text": "white plastic milk jug moved",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "ee4a40d7e": {
+   "group": 16,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "moved",
+   "text": "yellow shredded wheat box moved",
+   "merged": 1,
+   "label": "event 11"
+  },
+  "e1d9820e7": {
+   "group": 16,
+   "method": "ours",
+   "objkey": "ours:I48",
+   "kind": "removed",
+   "text": "shredded wheat cereal box removed",
+   "merged": 1,
+   "label": "event 12"
+  },
+  "e476ef7b3": {
+   "group": 17,
+   "method": "rules",
+   "objkey": "rules:I38",
+   "kind": "moved",
+   "text": "white plastic milk jug moved",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e825a4378": {
+   "group": 17,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "red wine bottle removed",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e71ca1d75": {
+   "group": 17,
+   "method": "ours",
+   "objkey": "ours:g17A2",
+   "kind": "added",
+   "text": "rattan cabinet added",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "ed4289246": {
+   "group": 17,
+   "method": "rules",
+   "objkey": "rules:I39",
+   "kind": "removed",
+   "text": "small cardboard box removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e85fc9117": {
+   "group": 17,
+   "method": "rules",
+   "objkey": "rules:I54",
+   "kind": "removed",
+   "text": "amazon cardboard box removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e295a9007": {
+   "group": 17,
+   "method": "ours",
+   "objkey": "ours:g17A1",
+   "kind": "added",
+   "text": "grey cipriata box added",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e63ad2e08": {
+   "group": 17,
+   "method": "scenediff",
+   "objkey": "scenediff:15",
+   "kind": "added",
+   "text": "pink cipriata box added",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "e26ac3b8b": {
+   "group": 17,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "small cardboard box added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e20d24ef1": {
+   "group": 17,
+   "method": "scenediff",
+   "objkey": "scenediff:7",
+   "kind": "moved",
+   "text": "yellow cereal box moved",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "edd845a7f": {
+   "group": 17,
+   "method": "scenediff",
+   "objkey": "scenediff:9",
+   "kind": "removed",
+   "text": "white ceramic bowl removed",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "eefb63852": {
+   "group": 18,
+   "method": "scenediff",
+   "objkey": "scenediff:5",
+   "kind": "added",
+   "text": "white plastic jug added",
+   "merged": 2,
+   "label": "event 1"
+  },
+  "eb528690c": {
+   "group": 18,
+   "method": "ours",
+   "objkey": "ours:g18A1",
+   "kind": "added",
+   "text": "blue broom added",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e75423b45": {
+   "group": 18,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "roll of masking tape added",
+   "merged": 2,
+   "label": "event 7"
+  },
+  "e02fb4af4": {
+   "group": 18,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "removed",
+   "text": "blue plastic object removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "ee098724d": {
+   "group": 18,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "removed",
+   "text": "beige tape roll removed",
+   "merged": 1,
+   "label": "event 6"
+  },
+  "e87fcc528": {
+   "group": 18,
+   "method": "rules",
+   "objkey": "rules:A2",
+   "kind": "added",
+   "text": "banana added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e07bd09e5": {
+   "group": 18,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "moved",
+   "text": "blue broom with white bristles moved",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "ef5d30690": {
+   "group": 18,
+   "method": "ours",
+   "objkey": "ours:g18A2",
+   "kind": "added",
+   "text": "blue pipe wrench added",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "ec47c65c0": {
+   "group": 19,
+   "method": "scenediff",
+   "objkey": "scenediff:7",
+   "kind": "added",
+   "text": "purple cadbury chocolate can added",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e97508a7b": {
+   "group": 19,
+   "method": "scenediff",
+   "objkey": "scenediff:9",
+   "kind": "added",
+   "text": "orange-labeled jar added",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "eb29e0326": {
+   "group": 19,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "red wine bottle removed",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e91665f55": {
+   "group": 19,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 4"
+  },
+  "e795ad85a": {
+   "group": 20,
+   "method": "rules",
+   "objkey": "rules:I18",
+   "kind": "removed",
+   "text": "red wine bottle removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "e46ee3b10": {
+   "group": 20,
+   "method": "ours",
+   "objkey": "ours:I25",
+   "kind": "moved",
+   "text": "ground cumin spice jar moved",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "eeabe15f3": {
+   "group": 20,
+   "method": "scenediff",
+   "objkey": "scenediff:8",
+   "kind": "added",
+   "text": "amber jar with label added",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e5a488fc3": {
+   "group": 20,
+   "method": "scenediff",
+   "objkey": "scenediff:6",
+   "kind": "added",
+   "text": "white ceramic bowl added",
+   "merged": 2,
+   "label": "event 4"
+  },
+  "e17f75314": {
+   "group": 20,
+   "method": "ours",
+   "objkey": "ours:I16",
+   "kind": "removed",
+   "text": "roll of masking tape removed",
+   "merged": 2,
+   "label": "event 6"
+  },
+  "e1aa70326": {
+   "group": 20,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "red wine bottle removed",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "eac87741f": {
+   "group": 20,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "removed",
+   "text": "blue broom removed",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e647f8361": {
+   "group": 21,
+   "method": "scenediff",
+   "objkey": "scenediff:3",
+   "kind": "removed",
+   "text": "blue striped pillow removed",
+   "merged": 1,
+   "label": "event 1"
+  },
+  "eec50f5d6": {
+   "group": 21,
+   "method": "ours",
+   "objkey": "ours:I80",
+   "kind": "removed",
+   "text": "navy and white striped pillow removed",
+   "merged": 2,
+   "label": "event 3"
+  },
+  "e52c4709c": {
+   "group": 21,
+   "method": "ours",
+   "objkey": "ours:g21A1",
+   "kind": "added",
+   "text": "red wine bottle added",
+   "merged": 2,
+   "label": "event 4"
+  },
+  "ea54cefe3": {
+   "group": 21,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "white ceramic bowl removed",
+   "merged": 2,
+   "label": "event 11"
+  },
+  "e520da06c": {
+   "group": 21,
+   "method": "rules",
+   "objkey": "rules:I4",
+   "kind": "removed",
+   "text": "pastel striped pillow removed",
+   "merged": 1,
+   "label": "event 7"
+  },
+  "ea2826c8f": {
+   "group": 21,
+   "method": "ours",
+   "objkey": "ours:g21A2",
+   "kind": "added",
+   "text": "honey squeeze bottle added",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e2116fe69": {
+   "group": 21,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "navy and white striped pillow added",
+   "merged": 1,
+   "label": "event 9"
+  },
+  "e1dab1024": {
+   "group": 21,
+   "method": "scenediff",
+   "objkey": "scenediff:4",
+   "kind": "added",
+   "text": "brown honey bottle added",
+   "merged": 1,
+   "label": "event 10"
+  },
+  "ece23e892": {
+   "group": 22,
+   "method": "ours",
+   "objkey": "ours:I41",
+   "kind": "removed",
+   "text": "yellow spirit level removed",
+   "merged": 2,
+   "label": "event 7"
+  },
+  "ee35280a9": {
+   "group": 22,
+   "method": "scenediff",
+   "objkey": "scenediff:0",
+   "kind": "removed",
+   "text": "orange box removed",
+   "merged": 1,
+   "label": "event 2"
+  },
+  "e8859c940": {
+   "group": 22,
+   "method": "rules",
+   "objkey": "rules:A1",
+   "kind": "added",
+   "text": "small cardboard box added",
+   "merged": 1,
+   "label": "event 3"
+  },
+  "e3fa82585": {
+   "group": 22,
+   "method": "ours",
+   "objkey": "ours:I30",
+   "kind": "removed",
+   "text": "orange sony camera box removed",
+   "merged": 2,
+   "label": "event 4"
+  },
+  "e16022501": {
+   "group": 22,
+   "method": "scenediff",
+   "objkey": "scenediff:7",
+   "kind": "removed",
+   "text": "white milk jug removed",
+   "merged": 1,
+   "label": "event 5"
+  },
+  "e4d9a9022": {
+   "group": 22,
+   "method": "ours",
+   "objkey": "ours:I37",
+   "kind": "moved",
+   "text": "fruit bowl moved",
+   "merged": 3,
+   "label": "event 6"
+  },
+  "e61f0d987": {
+   "group": 22,
+   "method": "rules",
+   "objkey": "rules:I54",
+   "kind": "removed",
+   "text": "amazon cardboard box removed",
+   "merged": 1,
+   "label": "event 8"
+  },
+  "e5daacfd8": {
+   "group": 22,
+   "method": "scenediff",
+   "objkey": "scenediff:1",
+   "kind": "removed",
+   "text": "yellow bananas in bowl removed",
+   "merged": 1,
+   "label": "event 9"
+  }
+ },
+ "counts": {
+  "rules": 50,
+  "scenediff": 76,
+  "ours": 52
+ },
+ "counts_before_merge": {
+  "rules": 74,
+  "scenediff": 88,
+  "ours": 55
+ },
+ "top_per_method_per_group": 4
+}

@@ -1,0 +1,430 @@
+{
+ "methods": {
+  "ours": {
+   "scored": 32,
+   "correct": 20,
+   "wrong_type": 5,
+   "wrong_name": 0,
+   "duplicate_of_other_method": 5,
+   "duplicate_same_method": 0,
+   "wrong": 2,
+   "unsure": 0,
+   "found": 29,
+   "precision": [
+    0.9375,
+    0.7985253275199642,
+    0.9826897968048427
+   ],
+   "recall": [
+    0.46774193548387094,
+    0.34908630867622215,
+    0.5901618262415199
+   ],
+   "type_accuracy": [
+    0.8,
+    0.6086866446346177,
+    0.9113954589934752
+   ],
+   "name_accuracy": [
+    1.0,
+    0.8668035060468213,
+    1.0
+   ],
+   "redundancy": [
+    0.0,
+    0.0,
+    0.1071827150573635
+   ]
+  },
+  "scenediff": {
+   "scored": 45,
+   "correct": 13,
+   "wrong_type": 8,
+   "wrong_name": 2,
+   "duplicate_of_other_method": 5,
+   "duplicate_same_method": 2,
+   "wrong": 10,
+   "unsure": 5,
+   "found": 28,
+   "precision": [
+    0.6511627906976745,
+    0.501715070970981,
+    0.775816012510369
+   ],
+   "recall": [
+    0.45161290322580644,
+    0.3341951476826002,
+    0.5746770546940128
+   ],
+   "type_accuracy": [
+    0.6521739130434783,
+    0.4488997690689164,
+    0.8118894536301776
+   ],
+   "name_accuracy": [
+    0.9130434782608695,
+    0.7320359570190598,
+    0.9758205045927666
+   ],
+   "redundancy": [
+    0.044444444444444446,
+    0.012273869040444335,
+    0.14827779183880616
+   ]
+  },
+  "rules": {
+   "scored": 29,
+   "correct": 7,
+   "wrong_type": 7,
+   "wrong_name": 0,
+   "duplicate_of_other_method": 9,
+   "duplicate_same_method": 2,
+   "wrong": 4,
+   "unsure": 0,
+   "found": 21,
+   "precision": [
+    0.8518518518518519,
+    0.6752093665317052,
+    0.9408416814035512
+   ],
+   "recall": [
+    0.3387096774193548,
+    0.2334153463018197,
+    0.46282532828689016
+   ],
+   "type_accuracy": [
+    0.5,
+    0.2679886791947528,
+    0.7320113208052472
+   ],
+   "name_accuracy": [
+    1.0,
+    0.7846829880728186,
+    1.0
+   ],
+   "redundancy": [
+    0.06896551724137931,
+    0.019120864097994433,
+    0.21964947595851925
+   ]
+  }
+ },
+ "pooled_changes": 62,
+ "per_group": {
+  "1": {
+   "ours": {
+    "tp": 2,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 2
+   },
+   "scenediff": {
+    "tp": 1,
+    "wrong": 3,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 1,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   }
+  },
+  "2": {
+   "ours": {
+    "tp": 1,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   },
+   "scenediff": {
+    "tp": 2,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   },
+   "rules": {
+    "tp": 2,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   }
+  },
+  "3": {
+   "ours": {
+    "tp": 2,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 2
+   },
+   "scenediff": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   },
+   "rules": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   }
+  },
+  "4": {
+   "ours": {
+    "tp": 1,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   },
+   "scenediff": {
+    "tp": 2,
+    "wrong": 1,
+    "unsure": 1,
+    "dup": 0,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 0,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 0
+   }
+  },
+  "5": {
+   "ours": {
+    "tp": 4,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 4
+   },
+   "scenediff": {
+    "tp": 1,
+    "wrong": 1,
+    "unsure": 1,
+    "dup": 1,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   }
+  },
+  "6": {
+   "ours": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   },
+   "scenediff": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   },
+   "rules": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 1,
+    "scored": 4
+   }
+  },
+  "7": {
+   "ours": {
+    "tp": 4,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 4
+   },
+   "scenediff": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 1,
+    "dup": 0,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 1,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   }
+  },
+  "8": {
+   "ours": {
+    "tp": 2,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   },
+   "scenediff": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 1,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 2,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   }
+  },
+  "9": {
+   "ours": {
+    "tp": 2,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 2
+   },
+   "scenediff": {
+    "tp": 3,
+    "wrong": 0,
+    "unsure": 1,
+    "dup": 0,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 2,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 1,
+    "scored": 4
+   }
+  },
+  "10": {
+   "ours": {
+    "tp": 1,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   },
+   "scenediff": {
+    "tp": 3,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 2,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 3
+   }
+  },
+  "11": {
+   "ours": {
+    "tp": 4,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 4
+   },
+   "scenediff": {
+    "tp": 1,
+    "wrong": 2,
+    "unsure": 1,
+    "dup": 0,
+    "scored": 4
+   },
+   "rules": {
+    "tp": 1,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   }
+  },
+  "12": {
+   "ours": {
+    "tp": 0,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   },
+   "scenediff": {
+    "tp": 1,
+    "wrong": 1,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 2
+   },
+   "rules": {
+    "tp": 1,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 1
+   }
+  },
+  "13": {
+   "ours": {
+    "tp": 4,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 4
+   },
+   "scenediff": {
+    "tp": 2,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 2
+   },
+   "rules": {
+    "tp": 2,
+    "wrong": 0,
+    "unsure": 0,
+    "dup": 0,
+    "scored": 2
+   }
+  }
+ },
+ "n_events": 106,
+ "groups": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13
+ ]
+}

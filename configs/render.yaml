@@ -1,0 +1,12 @@
+# Stage 7 (whatchanged.render): change film and stills.
+
+fps: 30
+before_s: 2.5
+fly_s: 1.6
+animate_s: 2.4
+hold_s: 0.5
+after_s: 2.5
+crossfade_s: 1.0
+max_events: 5             # changes animated per group, by confidence
+font: ""                  # a .ttf path; empty uses DejaVu Sans Bold shipped with matplotlib
+need_mib: 3500

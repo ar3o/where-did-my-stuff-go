@@ -1,0 +1,10 @@
+# Pipeline environment (torch 2.8 with CUDA 12.8 is installed first, see docs/installation.md).
+gsplat==1.5.3
+pycolmap==4.2.1
+numpy>=2.0,<2.4
+scipy
+opencv-python-headless
+pillow
+pillow-heif
+pyyaml
+matplotlib

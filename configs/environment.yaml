@@ -1,0 +1,12 @@
+# Interpreters and weights of the model workers. SAM 3, and the vision models (MoGe-3, DINOv2, SigLIP 2), run in their
+# own Python environments; the pipeline itself runs in the splat environment. See docs/installation.md.
+# `$NAME` reads the environment variable NAME; unset variables fall back to the defaults below.
+
+vision_python: $VISION_PY          # default: python
+vision_pythonpath: $VISION_PYTHONPATH   # extra PYTHONPATH entries, e.g. a MoGe checkout
+sam3_python: $SAM3_PY              # default: python
+sam3_repo: $SAM3_REPO              # facebookresearch/sam3 checkout (added to PYTHONPATH)
+sam3_checkpoint: $SAM3_CHECKPOINT  # default: $WHATCHANGED_WEIGHTS/sam3/sam3.pt
+dino_hub: $DINO_HUB                # local torch-hub checkout of facebookresearch/dinov2 (weights in its hub cache)
+siglip: $SIGLIP_DIR                # google/siglip2-so400m-patch14-384, a local copy or the Hugging Face id
+moge: $MOGE_CHECKPOINT             # default: Ruicheng/moge-3-vitl (a Hugging Face id or a local model.pt)
