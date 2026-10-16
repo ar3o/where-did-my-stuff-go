@@ -30,7 +30,7 @@
 
 ## Why I built this
 
-My idea for this project was to copy a situation that a home robot or any physical AI system will be in all the time. Over the first days in your house it gets familiar with the place, so it knows where the mugs live, which box is the shoe box and where the broom leans, and here that memory is a Gaussian splat built from one walk through the room. After that the room keeps changing without the robot being told, because someone borrows the screwdriver, leaves a parcel on the table or puts the fruit bowl somewhere else, and a robot that acts on a stale memory reaches for things that are not there anymore. So the question I wanted to answer is how much a robot can notice the moment it walks into a room, or from wherever it happens to be standing, without having to walk around to collect more views first, and the small sets of photos are exactly that: a few glances from the spot where the robot is.
+My idea for this project was to copy a situation that a home robot or any physical AI system will be in all the time. Over its first days in a house it gets familiar with the place and learns where things usually are, and here that memory is a Gaussian splat built from one walk through the room. After that the room keeps changing without anyone telling the robot, and a robot that acts on a stale memory goes looking for things that are not there anymore. So the question I wanted to answer is how much a robot can notice the moment it walks into a room, or from wherever it happens to be standing, without having to walk around to collect more views first, and the small sets of photos are exactly that: a few glances from the spot where the robot is.
 
 I picked a splat for the memory because it can render what the room should look like from any pose the robot ends up at, which turns "what changed?" into a comparison between what the robot remembers and what it sees from the same viewpoint, and because its Gaussians can be grouped into objects afterwards, so the answer can be one line per object with a number saying how much to trust it instead of a heatmap. I also wanted the checker to be trained on the room it lives in, the same way the robot learns one house, so I train a small model on edits of the splat itself instead of writing rules per object type or asking a vision-language model to compare two pictures, which in my early tests mistook a change of viewpoint for a change of the room.
 
@@ -140,6 +140,19 @@ I wanted something I can check by eye instead of a table of numbers, so for each
   <br><sub>Group 15: the pale green bowl, the yellow spirit level and the honey squeeze bottle were removed.</sub>
 </p>
 
+Two of the groups where I marked every change the pipeline reported as correct when I scored them:
+
+<table>
+<tr>
+<td width="50%"><img src="assets/media/film_g07.gif" alt="The film for group 7: the navy lotus shoe box turns into a red hologram on the coffee table, the egg carton glides to its new place, and the green knitted cloth on the sofa and the blue plastic bottle on the side table appear, ending on the real photo with labels." width="100%"></td>
+<td width="50%"><img src="assets/media/film_g13.gif" alt="The film for group 13: the white plastic milk jug turns into a red hologram, and the egg carton, the orange sony camera box and the steel frying pan glide to their new places, ending on the real photo with labels." width="100%"></td>
+</tr>
+<tr>
+<td><sub>Group 7: the shoe box was removed, the egg carton moved, and a cloth and a bottle were added.</sub></td>
+<td><sub>Group 13: the milk jug was removed, and the egg carton, the camera box and the frying pan moved.</sub></td>
+</tr>
+</table>
+
 <details>
 <summary>Another group</summary>
 <br>
@@ -149,6 +162,8 @@ I wanted something I can check by eye instead of a table of numbers, so for each
 </details>
 
 ## Results
+
+There is no ground truth for real room changes that I could download, so the main result is my own scoring of what each method reported on the real photos, since I am the one who made the changes and I know what happened in each set. I compare the full pipeline with SceneDiff, a published change-detection method, and with a rule-based version of my own pipeline on the same sets. The checks on synthetic edits, the calibration and the untouched-room test only look at parts of the pipeline, so I put them in a collapsed section after the main comparison.
 
 ### Experimental protocol
 
@@ -188,7 +203,10 @@ SceneDiff is the published method run from its public code, with three changes I
 
 The full pipeline and SceneDiff find about the same number of the 62 distinct real changes (29 and 28), while the pipeline reports far fewer events that were wrong, so its precision is higher (94 % against 65 %) and the two intervals do not overlap. Both find somewhat more than the rules (21), although those intervals overlap. The change-type accuracy is where the wrong answers pile up for all three methods: the 20 cards with the right object and the wrong type are all objects that I had moved, and 18 of them were reported as removed or added, so what goes wrong most often is deciding that an object in the photo is the same one as in the reference, and only 2 cards in the whole list had the right object with a wrong name, both from SceneDiff. The per-set counts are in `examples/manual_review/per_group.csv`.
 
-### Ablations
+<details>
+<summary><b>Checks on parts of the pipeline</b> (ablations, synthetic edits, calibration, the untouched room)</summary>
+
+#### Ablations
 
 Each row changes one thing and names the data it was measured on.
 
@@ -200,7 +218,7 @@ Each row changes one thing and names the data it was measured on.
 
 On the untouched room every one of these variants reports nothing wrongly, so that column does not separate them, and the event counts only say how much each variant reports, not how much of it is right, which is what the manual scoring above is for.
 
-### Recall on held-out synthetic edits by type and size
+#### Recall on held-out synthetic edits by type and size
 
 This is the only place where I have labels for every pixel, because the edits are made by me in the splat. An edit counts as found when a quarter of its region gets the right class from the checker, and the numbers are on the 220 validation pairs.
 
@@ -219,7 +237,7 @@ This is the only place where I have labels for every pixel, because the edits ar
 
 Over all 191 edits the recall is 0.93, the pixel F1 is 0.86 for appeared and 0.90 for missing, and 0.1 % of the pixels of the 78 pairs without an edit are flagged. The jump from 0.93 here to 0.49 on the 48-pair comparison is the object step that sat on top of SAM masks in the earlier version, which is why the final pipeline reads the checker's maps on the objects' own rendered masks.
 
-### Calibration
+#### Calibration
 
 The change probabilities are Platt-scaled on those held-out edits with two folds split by frame, and probabilities from several photos that agree are combined by noisy-OR.
 
@@ -237,7 +255,7 @@ The change probabilities are Platt-scaled on those held-out edits with two folds
 
 Most of the low ECE comes from the thousands of negatives near zero. The middle bins hold few samples and the curves lie above the diagonal there, so the model is cautious in that range, and the noisy-OR over photos is an extrapolation because every synthetic pair has a single view.
 
-### Objects wrongly reported as changed in the 5 photos of the untouched room
+#### Objects wrongly reported as changed in the 5 photos of the untouched room
 
 Every method was run on the same 5 photos of the untouched room, where nothing should be reported.
 
@@ -257,6 +275,8 @@ Every method was run on the same 5 photos of the untouched room, where nothing s
 | Full pipeline, each set against the reference | 0 | 59 | 26 added, 18 removed, 15 moved |
 
 A method that reports nothing gets a zero here too, so this column only says something together with the counts next to it, and the 5 photos are a small sample: zero wrong reports on 5 photos is compatible with a rate well above zero.
+
+</details>
 
 ## What was fixed by hand and what was tuned on what
 
