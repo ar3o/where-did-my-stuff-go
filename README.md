@@ -24,6 +24,8 @@
 
 <p align="center"><b>A pipeline that films a room once and tells me, from a few photos taken later, what was put down or taken away and what was moved, with a confidence for each line and a film that flies to every change.</b></p>
 
+<p align="center">My submission for the <b>Humanoid Spatial AI internship challenge</b> ("What changed in the room?"), October 2026.</p>
+
 <p align="center"><b>Live write-up:</b> I am continuing this project after the challenge deadline, and the latest version of this write-up lives at <a href="https://ar3o.github.io/where-did-my-stuff-go/">ar3o.github.io/where-did-my-stuff-go</a>.</p>
 
 ## Why I built this
@@ -32,7 +34,7 @@ I wanted to see how far a phone and a short walk through a room can get me towar
 
 I also made the data deliberately tricky. The room is my cluttered living room with about 40 objects on and around a coffee table, and a lot of those are plain cardboard boxes that look alike. For the changes I wanted to test object permanence and the difference between identity and appearance, so some objects moved but stayed in the frame, and in one set I put a second identical object right next to the original. Another set has a plate that was added, in some I hid things behind other things, and a few objects went back where they were after I had moved them. Between the sets of photos I reset the room to its original state, which means every set is compared with the reference walk only and never with the set before it. The current data is one three-minute walk, 22 change sets with 3 photos each, and 5 photos of the untouched room, and the only thing I tell the system about the room is a list of object names that I wrote after looking at the photos.
 
-The scope is one static site that has been filmed once, with objects from a few centimetres up to furniture size and changes that leave a visible trace in at least one photo. People walking around, places nobody filmed well and objects that are missing from the name list are outside it, and when something is hidden in every photo the system says it cannot verify it instead of guessing. I built this for the Spatial AI challenge ("what changed in the room?") and I am carrying on with it after the deadline.
+The scope is one static site that has been filmed once, with objects from a few centimetres up to furniture size and changes that leave a visible trace in at least one photo. People walking around, places nobody filmed well and objects that are missing from the name list are outside it, and when something is hidden in every photo the system says it cannot verify it instead of guessing. I built this for the Humanoid Spatial AI internship challenge ("what changed in the room?") and I am carrying on with it after the deadline.
 
 <p align="center">
   <img src="assets/arch_pipeline.png" alt="Overview of the whole pipeline on a white background: frames and photos, camera poses from SfM, a Gaussian splat of the room, objects in 3D named from a list, a change checker trained on edits of the splat, the changes found in a group of photos and a film, each with real thumbnails and a snowflake for frozen models or a flame for parts trained on this room." width="100%">
