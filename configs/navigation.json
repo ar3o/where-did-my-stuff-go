@@ -1,0 +1,96 @@
+{
+ "_note": "One settings file for every scene and episode of the navigation module. Values come from the robot spec, the memory scan or synthetic tests (the reason for each is in _why); none is tuned on evaluation episodes.",
+ "grid": {
+  "cell_m": 0.05,
+  "margin_m": 0.3,
+  "z_max_m": 2.0,
+  "band_hi_m": 1.6,
+  "band_lo_min_m": 0.02,
+  "band_lo_sigma": 3.0,
+  "min_views": 3,
+  "depth_stride": 2,
+  "gauss_min_opacity": 0.3
+ },
+ "robot": {
+  "radius_m": 0.25,
+  "eye_height_m": 1.5,
+  "reach_m": 0.5,
+  "max_step_m": 0.1,
+  "step_height_m": 0.1
+ },
+ "belief": {
+  "l_max": 6.0,
+  "l_conf": 1.4,
+  "decorrelate_s": 1.0,
+  "clear_vis": 0.5,
+  "min_vis_px": 300,
+  "cell_hit": 0.85,
+  "cell_miss": 0.3,
+  "new_min_px": 400,
+  "p_new": 0.5,
+  "new_min_h_m": 0.05,
+  "min_box_px": 120
+ },
+ "task": {
+  "siglip_min_margin": 0.02,
+  "nbv_step_m": 0.15,
+  "nbv_min_vis": 0.3,
+  "replan_cost_frac": 0.15
+ },
+ "_why": {
+  "grid.cell_m": "5 cm cells (spec); smaller than the 2-5 cm splat depth noise would only add noise",
+  "grid.band_hi_m": "obstacle band top 1.6 m: humanoid height about 1.6 m (spec)",
+  "grid.band_lo": "band bottom = max(2 cm, 3 sigma of the floor-plane residual measured on the memory scan) (memory_map.py records it)",
+  "grid.min_views": "a voxel / floor cell counts as observed when at least 3 reference cameras see a surface there (the same rule as whatchanged/splat/support.py)",
+  "robot.radius_m": "humanoid footprint radius (spec, configurable)",
+  "robot.reach_m": "standing pose within 0.5 m of the target (spec)",
+  "belief.decorrelate_s": "frames within 1 s are not independent views: each perception tick's log-odds update is scaled by min(1, dt / 1 s)",
+  "belief.l_conf": "state decided when |log-odds| >= 1.4 (p >= 0.8)",
+  "belief.cell_hit/miss": "standard occupancy-grid inverse sensor model (Thrun et al., Probabilistic Robotics ch. 9)",
+  "belief.p_new": "calibrated probabilities are thresholded at 0.5 (checker calibration on held-out synthetic edits)",
+  "robots": "robot footprint profiles; the memory map's 'trav' layer uses robot.radius_m (humanoid)",
+  "sim": "simulated head camera: phone-like intrinsics = the memory video's K; perception at fps / perceive_every Hz; motion limits of a slow indoor walk",
+  "robot.step_height_m": "a legged humanoid steps over anything below about 10 cm: obstacles = mass 10 cm - 1.6 m above the local floor; low clutter between the floor-noise level and 10 cm is traversable but costed",
+  "belief.min_box_px": "a small item's box mask needs at least 120 px (about 11 x 11) to be evidence",
+  "sim.scan_spin_s": "doorway scan = one slow 360 degree turn on the spot",
+  "sim.turn_dps": "angular speed <= 30 deg/s with eased acceleration (<= 45 deg/s^2), so the head camera shows no motion smear",
+  "sim.max_s": "time budget 90 s: at the slower turn speed a 62 s budget ran out mid-search, before the search reached the far side of the room"
+ },
+ "robots": {
+  "default": {
+   "radius_m": 0.25,
+   "note": "default footprint radius"
+  },
+  "shrink_ladder_m": [
+   0.25,
+   0.2,
+   0.15
+  ],
+  "_note": "if no path exists at the default radius the planner retries the smaller radii and reports the shrink"
+ },
+ "sim": {
+  "fps": 10,
+  "perceive_every": 4,
+  "speed_mps": 0.35,
+  "turn_dps": 30,
+  "pitch_walk_deg": -25,
+  "scan_pan_deg": 40,
+  "scan_steps": 2,
+  "step_m": 0.3,
+  "look_dist_m": [
+   0.6,
+   2.0
+  ],
+  "look_s": 2.0,
+  "max_s": 90,
+  "search_min_gain": 0.02,
+  "max_search_views": 4,
+  "render_w": 960,
+  "render_h": 540,
+  "scan_spin_s": 14.0,
+  "turn_acc_dps2": 45
+ },
+ "scenes": {
+  "_note": "Per-scene model files. By default a scene uses its own checker (<runs>/<scene>/checker/best.pt), feature PCA (<data>/<scene>/features/pca.npz), confidence calibration (<runs>/<scene>/checker/conf_calibration.json), no-change baseline and fingerprint match threshold (<runs>/<scene>/navigation/). An entry here, keyed by scene, replaces any of checker_ckpt, feats_pca, calib, nochange, move_match with a path (absolute, or relative to the runs root), or borrows another scene's file with move_match_from."
+ }
+}

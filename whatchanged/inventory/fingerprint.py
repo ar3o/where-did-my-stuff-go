@@ -1,17 +1,26 @@
 """Appearance fingerprints of inventory objects from the training part of the walk (the last 20 % is held out for the
 calibrations): the DINOv2 PCA embedding pooled over the object's rendered mask on known pixels in every training frame
-where at least 800 px are visible (weighted by the visible area), the mean colour of those pixels, and the box size."""
+where at least 800 px are visible (weighted by the visible area), the mean colour of those pixels, and the box size.
+
+A region is scored against a fingerprint as cos(embedding) - 0.5 x dims_term(box sizes) - 0.5 x |mean colour
+difference|."""
 
 from __future__ import annotations
 
 import cv2
 import numpy as np
 
-from whatchanged.common.features import pool
+from whatchanged.common.features import dims_term, pool
 from whatchanged.common.scene import Scene
 from whatchanged.splat import gaussians as gs
 
 MIN_PX = 800
+
+
+def score(emb: np.ndarray, col, size, ref: dict) -> float:
+    """Match score of a region (unit embedding, mean colour, box size) against a fingerprint dict(emb, col, size)."""
+    colour = float(np.linalg.norm(np.subtract(col, ref["col"])))
+    return float(emb @ ref["emb"]) - 0.5 * dims_term(size, ref["size"]) - 0.5 * colour
 
 
 def fingerprints(scene: Scene, tsp: dict, objects: list[dict], gid: np.ndarray) -> dict[str, dict]:

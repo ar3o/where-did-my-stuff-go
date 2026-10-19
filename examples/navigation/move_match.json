@@ -1,0 +1,7 @@
+{
+ "threshold": 0.45,
+ "margin": 0.05,
+ "rule": "score = cos - 0.5 dims - 0.5 colour; unique best, precision >= 0.95 on held-out val frames",
+ "n_val_regions": 784,
+ "note": "Fingerprint match threshold behind the navigation results: measured on held-out frames of the photo scene's walk (config1) and borrowed by the navigation memory scene. Copy to <runs>/<scene>/navigation/move_match.json, or point the scenes section of configs/navigation.json at it."
+}

@@ -5,6 +5,10 @@
 
 Writes assets/arch_pipeline.png, arch_splat.png, arch_inventory.png, arch_checker.png and arch_changes.png on a white
 background. Frozen models carry a snowflake, trained parts a flame.
+
+    PYTHONPATH=. MONTSERRAT_DIR=<fonts> python docs/figures/make_architecture.py --navigation [--nav-run ep2650_hammer]
+
+draws only assets/arch_navigation.png (memory map, one perception tick, acting) from the nav run outputs, CPU only.
 """
 
 from __future__ import annotations
@@ -624,13 +628,187 @@ def fig_changes(A):
     c.save("arch_changes.png")
 
 
+NAV_RUNS = Path("/mnt/data_ssd2/archie/spatial_checker/nav/nav/runs")
+NAV_QC = Path("/home/archie/my_isaac_projects/project_uni_robot_learn/runs/spatial/nav")
+NAV_SPLAT = Path("/mnt/data_ssd2/archie/spatial_checker/splat/nav")
+NAV_INV = Path("/mnt/data_ssd2/archie/spatial_checker/inventory/nav/inventory_v4.npz")
+MAP_FREE, MAP_OCC, MAP_UNK = "#949494", "#48484c", "#54585c"
+
+
+def inventory_render(splat: Path, inv: Path, W=600, H=600, yaw=-0.5, pitch=0.95):
+    """Oblique CPU point render of the memory splat with each named object in its own colour (no GPU)."""
+    z = np.load(splat)
+    gid = np.load(inv)["gid"]
+    xyz, op = z["means"].astype(np.float32), z["opacities"].astype(np.float32)
+    rgb = np.clip(0.5 + 0.28209 * z["sh"][:, 0], 0, 1)
+    keep = (op > 0.6) & (xyz[:, 2] > 0.02) & (xyz[:, 2] < 1.5) & (z["scales"].max(1) < 0.08)
+    lo, hi = np.percentile(xyz[keep, :2], 1, 0), np.percentile(xyz[keep, :2], 99, 0)
+    keep &= (xyz[:, :2] > lo - 0.1).all(1) & (xyz[:, :2] < hi + 0.1).all(1)
+    xyz, rgb, gid = xyz[keep] - np.r_[(lo + hi) / 2, 0], rgb[keep], gid[keep]
+    cy, sy, cp, sp = math.cos(yaw), math.sin(yaw), math.cos(pitch), math.sin(pitch)
+    x1, y1 = cy * xyz[:, 0] - sy * xyz[:, 1], sy * xyz[:, 0] + cy * xyz[:, 1]
+    u, v, d = x1, -(y1 * sp + xyz[:, 2] * cp), y1 * cp - xyz[:, 2] * sp
+    s = 0.92 * min(W / np.ptp(u), H / np.ptp(v))
+    pu = ((u - (u.min() + u.max()) / 2) * s + W / 2).astype(int)
+    pv = ((v - (v.min() + v.max()) / 2) * s + H / 2).astype(int)
+    pal = (np.array([cv2.cvtColor(np.uint8([[[int(h), 200, 235]]]), cv2.COLOR_HSV2RGB)[0, 0] for h in range(0, 180, 7)]) / 255.0)
+    col = 0.55 * rgb + 0.45 * 0.92
+    obj = gid >= 0
+    col[obj] = 0.25 * rgb[obj] + 0.75 * pal[(gid[obj] * 7) % len(pal)]
+    order = np.argsort(-d)  # far first
+    img = np.ones((H, W, 3), np.float32)
+    for r in (2, 1):
+        for du in range(-r, r + 1):
+            for dv in range(-r, r + 1):
+                a, b = np.clip(pu[order] + du, 0, W - 1), np.clip(pv[order] + dv, 0, H - 1)
+                img[b, a] = col[order]
+    return (img * 255).astype(np.uint8)
+
+
+def load_nav_assets(run: str, tick: int, film_frac: float) -> dict:
+    A = {}
+    q = rd(NAV_RUNS / run / "qc" / f"tick_{tick:05d}.jpg")
+    h, w = q.shape[0] // 2, q.shape[1] // 2
+    cut = 30  # drop the burnt-in tile names
+    A["mem_render"], A["sensor"] = q[cut:h, :w], q[cut:h, w:]
+    A["p_new"], A["p_gone"] = q[h + cut :, :w], q[h + cut :, w:]
+    m = rd(NAV_QC / "qc" / f"map_{run}.jpg")
+    A["map_mem"], A["map_obs"] = m[34:, : m.shape[1] // 2], m[34:, m.shape[1] // 2 :]
+    nm = rd(NAV_SPLAT / "nav_maps.jpg")
+    A["support"], A["height"] = nm[:, : nm.shape[1] // 2], nm[:, nm.shape[1] // 2 :]
+    td = rd(NAV_SPLAT / "gs" / "topdown.jpg")
+    s = td.shape[0]
+    A["topdown"] = td[int(s * 0.2) : int(s * 0.72), int(s * 0.12) : int(s * 0.74)]
+    sm = rd(NAV_QC / "qc" / f"nav_{run}_summary.jpg")
+    A["summary"] = sm[:, : int(sm.shape[1] * 0.668)]
+    v = rd(NAV_QC / "qc" / f"verify_{run}.jpg")
+    A["verify"] = v[: v.shape[0] - 44]
+    cap = cv2.VideoCapture(str(NAV_QC / "videos" / f"nav_{run}.mp4"))
+    cap.set(cv2.CAP_PROP_POS_FRAMES, int(cap.get(cv2.CAP_PROP_FRAME_COUNT) * film_frac))
+    ok, f = cap.read()
+    if not ok:  # fall back to the last still of the run
+        f = cv2.imread(str(sorted((NAV_QC / "qc").glob(f"nav_{run}_t*.jpg"))[-1]))
+    A["film"] = f[..., ::-1]
+    A["inventory"] = inventory_render(NAV_SPLAT / "gs" / "splat.npz", NAV_INV)
+    return A
+
+
+def fig_navigation(A):
+    c = Canvas(2200, 900)
+    c.pill(30, 34, "memory splat + episode splat + one prompt", 13)
+    c.legend(1610, 14)
+    mute = dict(color=C["mute"])
+
+    # (a) memory and map
+    c.box(30, 70, 610, 800, "input", "(a) Memory and map", 17)
+    c.image(A["topdown"], 50, 120, 270, 220, caption="memory splat, from above")
+    c.image(A["inventory"], 350, 120, 270, 220, caption="named 3D inventory")
+    c.module(350, 378, 130, 62, "SAM 3", True, size=13, sub="names")
+    c.module(490, 378, 130, 62, "SigLIP 2", True, size=13, sub="crops")
+    c.module(50, 378, 270, 62, "floor maps", None, size=13, sub=">= 3 memory cameras")
+    c.image(A["support"], 50, 462, 130, 116, caption="views per cell", cap_size=10)
+    c.image(A["height"], 190, 462, 130, 116, caption="max height", cap_size=10)
+    c.module(50, 618, 270, 62, "obstacles", None, size=13, sub="mass 0.1 to 1.6 m above floor")
+    c.image(A["map_mem"], 350, 462, 270, 227, caption="walkable map")
+    for i, (col, name) in enumerate(((MAP_FREE, "free"), (MAP_OCC, "occupied"), (MAP_UNK, "unknown"))):
+        x = 352 + (0, 70, 176)[i]
+        c.ax.add_patch(Rectangle((x, 724), 14, 14, fc=col, ec="#888888", lw=1.0, zorder=4))
+        c.text(x + 20, 731, name, 11, **mute)
+    c.arrow(304, 342, 304, 378)
+    c.arrow(185, 440, 185, 462)
+    c.arrow(185, 600, 185, 618)
+    c.arrow(320, 649, 350, 600)
+    c.arrow(320, 230, 350, 230)
+    c.arrow(596, 342, 596, 378, ls="--")
+
+    # (b) one perception tick
+    c.box(670, 70, 910, 800, "logic", "(b) One perception tick", 17)
+    c.module(690, 120, 160, 62, "robot pose", None, kind="input", size=13, sub="x, y, yaw, pitch")
+    c.module(690, 212, 160, 62, "head camera", None, size=13, sub="RGB + depth")
+    c.image(A["sensor"], 880, 112, 220, 120, caption="episode splat", cap_size=11)
+    c.image(A["mem_render"], 880, 262, 220, 120, caption="memory splat, same pose", cap_size=11)
+    c.text(712, 300, ">= 3 episode cams", 11, **mute)
+    c.text(712, 320, "give a reading", 11, **mute)
+    c.module(1130, 120, 160, 62, "DINOv2", True, size=13, sub="ViT-L/14")
+    c.module(1130, 212, 160, 62, "change checker", False, size=11, sub="new / gone / same")
+    c.image(A["p_new"], 1320, 112, 240, 131, caption="P(new)", cap_size=11)
+    c.image(A["p_gone"], 1320, 272, 240, 131, caption="P(gone)", cap_size=11)
+    c.module(1320, 440, 240, 70, "object evidence", None, size=13, sub="present / gone / covered")
+    c.text(1440, 526, "log-odds per object", 11, ha="center", **mute)
+    c.module(1320, 556, 240, 70, "re-identify", None, size=13, sub="fingerprint, 'new here' areas")
+    c.arrow(770, 182, 770, 212)
+    c.arrow(850, 236, 880, 172)
+    c.arrow(850, 250, 880, 322)
+    c.arrow(1100, 172, 1130, 151)
+    c.arrow(1100, 322, 1130, 243)
+    c.arrow(1210, 182, 1210, 212)
+    c.arrow(1290, 236, 1320, 178)
+    c.arrow(1290, 250, 1320, 337)
+    c.arrow(1520, 405, 1520, 440)
+    c.arrow(1440, 540, 1440, 556, ls="--")
+    # occupancy branch
+    c.module(690, 440, 200, 62, "back-project depth", None, size=12, sub="episode depth")
+    c.module(690, 532, 200, 62, "new obstacle", None, size=12, sub="mass memory can't explain")
+    c.module(690, 624, 200, 62, "freed space", None, size=12, sub="memory said occupied")
+    c.image(A["map_obs"], 920, 440, 370, 311, caption="observed map: new red, freed green")
+    c.arrow(702, 274, 702, 440)
+    c.arrow(790, 502, 790, 532)
+    c.arrow(790, 594, 790, 624)
+    c.arrow(890, 563, 920, 563)
+    c.arrow(890, 655, 920, 655)
+    c.arrow(620, 563, 690, 563, ls="--")
+
+    # (c) acting
+    c.box(1610, 70, 560, 800, "out", "(c) Acting", 17)
+    c.module(1630, 120, 160, 62, "prompt", None, kind="input", size=13, sub='"check the hammer"')
+    c.module(1810, 120, 160, 62, "SigLIP 2", True, size=13, sub="text")
+    c.module(1990, 120, 160, 62, "target", None, size=13, sub="object + place")
+    c.arrow(1790, 151, 1810, 151)
+    c.arrow(1970, 151, 1990, 151)
+    steps = [
+        ("doorway turn", "first look"),
+        ("look pose", "next best view"),
+        ("A* path", "clearance, footprints"),
+        ("search", "full turns"),
+    ]
+    for i, (lab, sub) in enumerate(steps):
+        c.module(1630, 222 + i * 88, 220, 62, lab, None, size=13, sub=sub)
+        if i:
+            c.arrow(1740, 222 + i * 88 - 26, 1740, 222 + i * 88)
+    c.arrow(1850, 517, 1850, 341, rad=0.4, color=C["mute"], ls="--")
+    c.module(1630, 574, 220, 70, "verdict", None, kind="out", size=13, sub="here / not here / moved")
+    c.text(1740, 660, "covered / no path", 11, ha="center", **mute)
+    c.text(1740, 680, "+ agreeing views", 11, ha="center", **mute)
+    c.arrow(1740, 548, 1740, 574)
+    c.ax.plot([2070, 2070, 1740], [182, 202, 202], color="#555555", lw=2.2, zorder=5)
+    c.arrow(1740, 201, 1740, 222)
+    c.image(A["film"], 1905, 222, 245, 138, caption="film: path, marks, minimap", cap_size=11)
+    c.image(A["summary"], 1905, 410, 245, 219, caption="run, from above", cap_size=11)
+    c.image(A["verify"], 1630, 712, 520, 117, caption="memory  |  episode  |  real photo", cap_size=11)
+    c.arrow(1850, 609, 1905, 600)
+    # across panels
+    c.arrow(1560, 475, 1630, 341, color=C["out_e"])
+    c.ax.plot([1290, 1595, 1595], [740, 740, 429], color=C["out_e"], lw=2.2, zorder=5)
+    c.arrow(1594, 429, 1630, 429, color=C["out_e"])
+    c.save("arch_navigation.png")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--scene", required=True)
-    ap.add_argument("--film-dir", type=Path, required=True)
+    ap.add_argument("--scene")
+    ap.add_argument("--film-dir", type=Path)
     ap.add_argument("--photo", default="IMG_2597")
     ap.add_argument("--group", type=int, default=8)
+    ap.add_argument("--navigation", action="store_true", help="draw only assets/arch_navigation.png")
+    ap.add_argument("--nav-run", default="ep2650_hammer")
+    ap.add_argument("--nav-tick", type=int, default=380)
+    ap.add_argument("--nav-film-frac", type=float, default=0.86)
     args = ap.parse_args()
+    if args.navigation:
+        fig_navigation(load_nav_assets(args.nav_run, args.nav_tick, args.nav_film_frac))
+        return
+    if not args.scene or not args.film_dir:
+        ap.error("--scene and --film-dir are required unless --navigation")
     A = load_assets(Scene(args.scene), args.photo, args.group, args.film_dir)
     for f in (fig_pipeline, fig_splat, fig_inventory, fig_checker, fig_changes):
         f(A)

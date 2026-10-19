@@ -130,6 +130,18 @@ def obb_zup(P: np.ndarray, q_lo: float = 2, q_hi: float = 98):
     return np.array([cxy[0], cxy[1], (zlo + zhi) / 2]), size, float(yaw)
 
 
+def footprint(centre, size, yaw: float, shrink: float = 1.0) -> np.ndarray:
+    """4 corners (x, y) of the footprint rectangle of a z-up box, scaled by `shrink`."""
+    hx, hy = np.asarray(size[:2], float) / 2 * shrink
+    return np.array([[-hx, -hy], [hx, -hy], [hx, hy], [-hx, hy]]) @ rot2(yaw).T + np.asarray(centre, float)[:2]
+
+
+def in_footprint(xy: np.ndarray, centre, size, yaw: float, shrink: float = 1.0) -> np.ndarray:
+    """Which points xy (n, 2) lie inside the footprint rectangle of a z-up box (scaled by `shrink`)."""
+    loc = (xy - np.asarray(centre)[:2]) @ rot2(yaw)
+    return (np.abs(loc[:, 0]) <= size[0] / 2 * shrink) & (np.abs(loc[:, 1]) <= size[1] / 2 * shrink)
+
+
 def box3d(P: np.ndarray) -> dict | None:
     """Box of a lifted region (5-95 % extents, sides at least 2 cm); None below 30 points."""
     if len(P) < 30:
